@@ -31,9 +31,9 @@
 
 
     <form method=post enctype=multipart/form-data>
+        Title: <input type="text" name="file_title" required>
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" name="fileName" accept=".md,.txt" required
-                   onchange="validate_fileupload(this);">
+            <input type="file" class="custom-file-input" id="customFile" name="fileName" accept=".md,.txt" required onchange="validate_fileupload(this);">
             <label class="custom-file-label" for="customFile">Choose file</label>
         </div>
         <input id="uploadsubmit" type="submit" value="Upload File" onclick="return valid_form();"
