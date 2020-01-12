@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Uploader!</title>
+    <script src="/static/script.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="">File uploader!</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li><a class="nav-link" href="/">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Home</button>
+            </a></li>
+            <li><a class="nav-link" href="/upload">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Upload a new File</button>
+            </a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Upload new File</h1>
+
+
+    <form method=post enctype=multipart/form-data>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile" name="fileName" accept=".md,.txt" required
+                   onchange="validate_fileupload(this);">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        <input id="uploadsubmit" type="submit" value="Upload File" onclick="return valid_form();"
+               class="btn btn-outline-success my-2 my-sm-0"/>
+    </form>
+
+</div>
+
+
+<script>
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+
+</body>
+</html>
